@@ -1,0 +1,49 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="http://www.jqplot.com/jquery.jqplot.css" />
+  <script language="javascript" type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+  <script language="javascript" type="text/javascript" src="http://www.jqplot.com/jquery.jqplot.js"></script>
+  <script language="javascript" type="text/javascript" src="http://www.jqplot.com/plugins/jqplot.barRenderer.js"></script>
+  <script language="javascript" type="text/javascript" src="http://www.jqplot.com/plugins/jqplot.pieRenderer.js"></script>
+  <script language="javascript" type="text/javascript" src="http://www.jqplot.com/plugins/jqplot.categoryAxisRenderer.js"></script>
+  <script language="javascript" type="text/javascript" src="http://www.jqplot.com/plugins/jqplot.highlighter.js"></script>
+  <script language="javascript" type="text/javascript" src="http://www.jqplot.com/plugins/jqplot.pointLabels.js"></script>
+
+
+  <script language="javascript">
+  $(document).ready(function(){
+    var s1 = [500, 150, 100, 300];
+    var ticks = ['Spring3', 'Web Avanzado', 'Grails', 'Hibernate'];
+
+    plot1 = $.jqplot('chart1', [s1], {
+      seriesDefaults:{
+        renderer:$.jqplot.BarRenderer,
+        pointLabels: { show: true }
+      },
+      axes: {
+        xaxis: {
+          renderer: $.jqplot.CategoryAxisRenderer,
+          ticks: ticks
+        }
+      },
+      highlighter: { show: true }
+    });
+    
+    var piePlot = $.jqplot('pieChart', [[1,2,3,4]], {seriesDefaults:{renderer:$.jqplot.PieRenderer}});
+    
+
+    $('#chart1').bind('jqplotDataClick', 
+      function (ev, seriesIndex, pointIndex, data) {
+        $('#info1').html('series: '+seriesIndex+', point: '+pointIndex+', data: '+data);
+      }
+    );
+  });
+
+</script>
+
+</head>
+<body>
+  <div id="chart1" style="margin-top:20px; margin-left:20px; width:300px; height:300px;"></div>
+  <div id="pieChart" style="margin-top:20px; margin-left:20px; width:300px; height:300px;"></div>
+</body>
+</html>

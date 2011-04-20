@@ -1,0 +1,43 @@
+<html>
+<head>
+<!-- Usually in the <head> section -->
+<link rel="stylesheet" href="http://nivo.dev7studios.com/scripts/nivo-slider/nivo-slider.css" type="text/css" media="screen" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+<script src="http://nivo.dev7studios.com/scripts/nivo-slider/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+<style>
+#slider {
+    position:relative;
+    width:618px; /* Change this to your images width */
+    height:246px; /* Change this to your images height */
+    background:url(images/loading.gif) no-repeat 50% 50%;
+}
+#slider img {
+    position:absolute;
+    top:0px;
+    left:0px;
+    display:none;
+}
+#slider a {
+    border:0;
+    display:block;
+}
+</style>
+<script type="text/javascript">
+$(function() {
+    $('#slider').nivoSlider();
+});
+</script>
+</head>
+<body>
+<!-- Then somewhere in the <body> section -->
+<div id="slider">
+    <img src="img/slide1.jpg" alt="" title="Asiste..."/>
+    <img src="img/slide2.jpg" alt="" title="Buscanos en http://flickr.com/springhispano" />
+    <img src="img/slide3.jpg" alt="" title="Reuniones de SpringHispano y GrailsMX" />
+    <img src="img/slide4.jpg" alt="" />
+</div>
+<div id="htmlcaption" class="nivo-html-caption">
+    <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
+</div>
+</body>
+</html>
